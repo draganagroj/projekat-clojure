@@ -1,6 +1,5 @@
 (ns controller.controller
   (:require [compojure.core :refer [defroutes GET POST routes]]
-         
              [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
              [compojure.handler :as handler]
              [model.model :as model]
@@ -29,10 +28,12 @@
 
 
 (defroutes app-routes
+  "loading resources"
   (route/resources "/")
   (route/not-found "Not Found"))
 
 (def app
+  "application handler"
 (->
 (handler/site (routes
                 recipe

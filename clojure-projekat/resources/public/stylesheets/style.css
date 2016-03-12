@@ -103,6 +103,61 @@ html{
 	color:#777
 	
 }
+.font-head{
+	font-weight:bold;
+	color:#555;
+	font-family:Lucida Calligraphy;
+	letter-spacing: 2px ;
+	font-size:x-large
+}
+#recommended-div-1{
+	border: 2px dashed #777; 
+	border-radius:10px; 
+	margin-top:10px"
+	
+}
+.table-st{
+	width:100%; 
+}
+.td-2{
+	color: #555;
+	font-style:italic
+}
+.td-1{
+	color: #555;
+	font-weight:bold
+}
+.td-st{
+	height:100px ;
+	 border-top: 2px dashed #46b8da;
+	  border-bottom: 2px dashed #46b8da 
+}
+.recipes-containter{
+	width:75% ;
+	margin:auto
+}
+#recommended-div-2{
+	font-style:italic ;
+	 font-size:medium
+}
+#comment-field{
+	margin-left:-5px;
+	margin-bottom:10px
+}
+#font-label{
+	font-style:italic
+}
+#text-field{
+	margin-left:-20px
+}
+#comment-form{
+	margin-top:20px
+}
+
+#like-div {
+	margin-top:20px;
+	 margin-left:44% 
+}
 .wrapper{
 	min-height:100%;
 	position:relative;
@@ -114,7 +169,6 @@ html{
 	height: 50px;
 	position: absolute; 
 	bottom: 0;
-	
 	background-color:#F8F8F8;
 	border:1px solid  transparent;
 	border-color:#E7E7E7;

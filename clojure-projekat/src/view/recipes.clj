@@ -10,33 +10,30 @@
              
   )
   )
-
 (defn recipe [recipes]
-    (layout/common "Recipes"
-                  (layout/navbar-my-recipes)
-     [:div.containter  {:style "width:75% ; margin:auto"}
-      [:table.col-md-8 {:style " width:100%; "}
-       [:tbody
-       
-         (for [recipe recipes]
-      [:tr {:style "height:100px ; border-top: 2px dashed #46b8da; border-bottom: 2px dashed #46b8da "}
-       [:td  {:style "color: #555; font-weight:bold"} (:title recipe)]
-       [:td  {:style "color: #555; font-style:italic"} (str (subs (:body recipe) 0 200) "...") [:a {:href (str "/show/" (:id recipe))} "  see whole recipe"]]
-       ]
-      ) 
-        
-       ]
+  "my recipes page"
+(layout/common "Recipes"
+(layout/navbar-my-recipes)
+ [:div.containter.recipes-containter
+  [:table.col-md-8.table-st
+   [:tbody
+     (for [recipe recipes]
+        [:tr.td-st
+     [:td.td-1 (:title recipe)]
+     [:td.td-2 (str (subs (:body recipe) 0 200) "...") [:a {:href (str "/show/" (:id recipe))} "  see whole recipe"]]
+     ]
+      )  
+   ]
    
-    ]
-        ]          
-     (layout/footer)
-                  )
+]  ]          
+(layout/footer)                  )
   )
 
 (defroutes my-recipes
+  "my recipe routes"
   (GET "/myrecipes" []
        (if (nil?(session/get :user))
          (redirect "/")
-       (recipe (model/my-recipes (session/get :user)) ))
+         (recipe (model/my-recipes (session/get :user)) ))
        )
   )

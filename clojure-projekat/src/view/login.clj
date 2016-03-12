@@ -11,6 +11,7 @@
 
   
   (defn login-page
+    "login page"
  [message]  
   (layout/common "Logging"
 [:div.col-md-offset-3.col-md-6 
@@ -37,9 +38,10 @@
    
     )
 (defn login-check [name pass]
+  "checking whether user is registered"
      (if (not (empty? (model/user name pass) ))
            (do (session/put! :user name)
-             
+                
                (redirect "/"))
            
            (login-page "Login error"))
@@ -47,6 +49,7 @@
    
   
 (defroutes login
+  "login routes"
     (GET "/login" [] (login-page ""))
     (GET "/logout" [] 
          (do

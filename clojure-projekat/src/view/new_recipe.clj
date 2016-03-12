@@ -12,9 +12,9 @@
   )
 
 (defn new-recipe [message]
-  (layout/common "New recipe"
-    (layout/navbar-new)              
-                 
+  "new recipe page"
+(layout/common "New recipe"
+(layout/navbar-new)                         
 (form/form-to  {:role "form" :id "login-form" :class "form-horizontal"}[:post "/new"]
 [:div {:class "form-group"}
 (form/label {:class "reg-label control-label col-md-2"} "title" "Title:")
@@ -27,25 +27,23 @@
 (form/text-area  { :id "txt-area" :class "form-control"  :required "required" } :text )]]
 [:br]
 (form/submit-button {:class "btn btn-info col-md-offset-6"} "save"))
-
 (when
 (not(= message ""))
 [:div
   [:div {:class "first"} message ]
-[:div.alert.alert-success.col-md-offset-2.col-md-9.message "Your recipe has been saved"] ])
-
+     [:div.alert.alert-success.col-md-offset-2.col-md-9.message "Your recipe has been saved"] ])
   (layout/footer)
   ))
 
 (defroutes recipe
-  
+  "new recipe routes"
  (GET "/new" [] 
         (if (nil?(session/get :user))
            (redirect "/")
-      (new-recipe "")))
+           (new-recipe "")))
   (POST "/new" [title text] 
         (do(model/insert-recipe title text (session/get :user))
-          (new-recipe (model/insert-def-rat ))
+           (new-recipe (model/insert-def-rat ))
           )
         )
          )

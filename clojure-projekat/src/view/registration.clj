@@ -9,8 +9,9 @@
               [noir.validation :refer [has-value?]]
              )
   )
-;; registration page
+
 (defn registration-page [message]
+  " registration page"
 (layout/common "Register"
                [:div.row
 [:div.col-md-offset-3.col-md-6 
@@ -40,8 +41,7 @@
   [:div {:class "first"} message ]
 [:div.alert.alert-success "You successfuly registered"] ]
 
-)
-  
+)  
 (when (and (has-value? message ) (= message "Error") )
   [:div
   [:div {:class "first"} message ]
@@ -60,6 +60,7 @@
 
 
 (defn registration-handler [name pass pass1]
+  "registration validation"
    (if (= pass pass1)  
               (do 
              
@@ -73,6 +74,7 @@
    )
 
 (defroutes registration
+  "registration routes"
   (GET "/register" [] (registration-page ""))
  (POST "/register" [name pass pass1]
        (registration-handler name pass pass1)
